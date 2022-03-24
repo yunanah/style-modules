@@ -1,0 +1,119 @@
+%btn-base {
+    @include inline-flexbox;
+    padding: 0 8px;
+    font-weight: 700;
+    border-radius: 4px;
+
+    &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+}
+
+// Note: Button styles
+.btn-primary {
+    @extend %btn-base;
+    color: $white;
+    background-color: $blue;
+    transition: background-color 200ms ease-in-out;
+
+    &:not(:disabled):hover {
+        background-color: $blue-dark;
+    }
+}
+
+.btn-primary-answer {
+    @extend %btn-base;
+    color: $white;
+    background-color: #FFD07F;
+    transition: background-color 200ms ease-in-out;
+    border-radius: 20px;
+    box-shadow: 1px 4px 4px 1px $border;
+    &:not(:disabled):hover {
+        background-color: $blue-dark;
+    }
+}
+
+.btn-border-answer {
+    @extend %btn-base;
+    color: $blue-dark;
+    background-color: white;
+    border: 2px solid #FFD07F;
+    transition: background-color 200ms ease-in-out;
+    border-radius: 20px;
+    box-shadow: 1px 4px 4px 1px $border;
+    // &:not(:disabled):hover {
+    //     background-color: #fac871;
+    //     color: white;
+    //     opacity: 0.8;
+    // }
+}
+
+.btn-secondary {
+    @extend %btn-base;
+    color: $primary;
+    background-color: $border;
+    transition: background-color 200ms ease-in-out;
+
+    &:not(:disabled):hover {
+        background-color: $tertiary;
+    }
+}
+
+.btn-outlined {
+    @extend %btn-base;
+    color: $blue;
+    background-color: $white;
+    border: 1px solid $blue;    
+    transition: background-color 200ms ease-in-out;
+
+    &:not(:disabled):hover {
+        background-color: $blue-light;
+    }
+}
+
+.btn-ghost {
+    @extend %btn-base;
+    color: $primary;
+    background-color: transparent;
+    transition: color 200ms ease-in-out;
+
+    &:not(:disabled):hover {
+        color: $secondary;
+    }
+}
+
+// Note: Button sizes
+.btn-32 {
+    @include text-style(14);
+    height: 32px;
+}
+
+.btn-50-ans {
+    @include text-style(18);
+    height: 48px;
+    padding: 0px;
+    width: 300px;
+
+    @media screen and (max-width: $md-breakpoint) {
+        @include text-style(16);
+        // padding: 0px;
+        height: 48px;
+        width: 200px;
+    }
+}
+
+.btn-40 {
+    @include text-style(16);
+    height: 40px;
+}
+
+.btn-48 {
+    @include text-style(16);
+    height: 48px;
+}
+
+.btn-55 {
+    @include text-style(18);
+    height: 55px;
+}

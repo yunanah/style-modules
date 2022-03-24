@@ -1,0 +1,75 @@
+// option[value="$"]*5{선택사항 $} 하고 탭 하면 개수만큼 생김 select의 <option value="1">선택 사항 1</option>
+%form-base {
+    @include text-style(16, $primary);
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 0 16px;
+    background-color: $white;
+    border: 1px solid $border;
+    border-radius: 4px;
+    appearance: none; //기본 디자인 none
+    transition: background-color 200ms ease-in-out;
+
+    &::placeholder {
+        color: $tertiary;
+    }
+
+    &:not(:disabled):hover {
+        background-color: $background;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.4;
+    }
+}
+
+.form-select,
+.form-input {
+    @extend %form-base;
+}
+
+// Note: select
+.select-group {
+    position: relative;
+
+    &.is-active {
+        .form-select {
+            border-color: $blue;
+        }
+
+        .fas {
+            color: $blue;
+        }
+    }
+    
+    .form-select {
+        padding-right: 40px;
+        text-overflow: ellipsis;
+    }
+
+    .fas {
+        @include pos-center-y;
+        right: 8px;
+        font-size: 24px;
+        color: $tertiary;
+        pointer-events: none; //한 레이어 위에 생긴 (absolute) 아이콘을무시하고 그아래 영역을 클릭할 수 있게함 
+    }
+}
+
+// Note: input
+.input-group {
+    position: relative;
+
+.form-input {
+    padding-left: 20px;
+}
+
+    .fas {
+        @include pos-center-y;
+        left: 10px;
+        font-size: 20px;
+        color: $secondary;
+    }
+}
